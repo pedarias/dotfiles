@@ -1,0 +1,10 @@
+.DS_Store
+.env
+.env.*
+*.local
+*.bak
+*.backup
+.zsh_history
+.zsh_sessions/
+.dotfiles-backups/
+__pycache__/
