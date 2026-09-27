@@ -10,6 +10,17 @@ Requires [Homebrew](https://brew.sh).
 brew install gh
 gh auth login --hostname github.com --git-protocol https --web
 gh repo clone pedarias/dotfiles "$HOME/dotfiles"
+```
+
+Or, if you already have Git with SSH access to GitHub:
+
+```bash
+git clone git@github.com:pedarias/dotfiles.git "$HOME/dotfiles"
+```
+
+Then run the installer:
+
+```bash
 bash "$HOME/dotfiles/install.sh"
 ```
 
