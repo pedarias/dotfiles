@@ -162,3 +162,12 @@ if [ -x "$HOME/.local/share/devin/cli/_versions/2026.5.26-8/bin/devin" ]; then
   eval "$("$HOME/.local/share/devin/cli/_versions/2026.5.26-8/bin/devin" shell init zsh --stage post)"
 fi
 # <<<< END MANAGED DEVIN BLOCK <<<<
+
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
+
+if command -v fzf >/dev/null 2>&1; then
+  __fzf_init="$(fzf --zsh 2>/dev/null)" && eval "$__fzf_init"
+  unset __fzf_init
+fi

@@ -13,7 +13,9 @@ CONFIGS = {
     ".p10k.zsh": ".p10k.zsh",
     ".config/tmux/tmux.conf": ".config/tmux/tmux.conf",
     ".tmux.conf": ".config/tmux/tmux.conf",
+    ".config/ghostty/config.ghostty": ".config/ghostty/config.ghostty",
 }
+FORMULAS = ["tmux", "zoxide", "fzf"]
 
 
 class InstallTests(unittest.TestCase):
@@ -86,6 +88,10 @@ fi
     def test_fresh_install_and_rerun(self):
         self.install()
         self.assert_links()
+        self.assertEqual(
+            (self.home / "brew.log").read_text().splitlines(),
+            [f"list --versions {formula}" for formula in FORMULAS],
+        )
         log = (self.home / "git.log").read_text()
         self.assertEqual(len(log.splitlines()), 20)
         self.install()

@@ -1,0 +1,18 @@
+# Font Settings
+font-family = "JetBrains Mono"
+font-size = 13
+
+# Window & Theme (Nomes exatos do +list-themes)
+theme = dark:Catppuccin Mocha,light:Catppuccin Latte
+background-opacity = 0.95
+window-padding-x = 12
+window-padding-y = 12
+
+# Cursor & Integration
+cursor-style = block
+cursor-style-blink = false
+mouse-hide-while-typing = true
+
+# Keybindings para splits
+keybind = super+d=new_split:right
+keybind = super+shift+d=new_split:down

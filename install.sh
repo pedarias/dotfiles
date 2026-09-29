@@ -33,7 +33,9 @@ fi
 repo_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 backup_dir="$HOME/.dotfiles-backups/$(date +%Y%m%d-%H%M%S)-$$"
 
-brew list --versions tmux >/dev/null 2>&1 || brew install tmux
+for formula in tmux zoxide fzf; do
+  brew list --versions "$formula" >/dev/null 2>&1 || brew install "$formula"
+done
 
 clone_pinned() {
   local repository="$1" revision="$2" destination="$3" entrypoint="$4"
@@ -80,5 +82,6 @@ link_config "$repo_dir/.p10k.zsh" .p10k.zsh
 link_config "$repo_dir/.zshrc" .zshrc
 link_config "$repo_dir/.config/tmux/tmux.conf" .config/tmux/tmux.conf
 link_config "$repo_dir/.config/tmux/tmux.conf" .tmux.conf
+link_config "$repo_dir/.config/ghostty/config.ghostty" .config/ghostty/config.ghostty
 
 printf '\n%s\n' 'Pronto. Abra uma nova janela do terminal ou execute: exec zsh -l' 'Depois execute: tmux' 'Mantenha esta pasta: as configurações apontam para ela por links simbólicos.' 'Instalações existentes dos plugins foram preservadas; instalações novas usam as versões do Linux.' 'Servidores tmux já abertos não foram alterados. Para recarregar, use Ctrl-b e depois r.'
