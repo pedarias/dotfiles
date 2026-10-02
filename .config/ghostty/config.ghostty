@@ -16,3 +16,6 @@ mouse-hide-while-typing = true
 # Keybindings para splits
 keybind = super+d=new_split:right
 keybind = super+shift+d=new_split:down
+
+# Auto-attach every new window/tab to a shared tmux session
+command = /opt/homebrew/bin/tmux new-session -A -s main
